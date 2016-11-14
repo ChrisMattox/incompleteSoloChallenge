@@ -3,8 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Node Express Joke Book</title>
+    <script type="text/javascript" src="../vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="../scripts/client.js"></script>
   </head>
   <body>
+    <h1>JokeBook</h1>
+    <form id="jokeForm">
+      <p class="whosJoke"></p>
+      <label for="theAuthor">Author:</label>
+      <input type="text" id="theAuthor" name="theAuthor" />
 
+      <label for="theJoke">Joke:</label>
+      <input type="text" id="theJoke" name="theJoke" />
+
+      <label for="thePunchline">Punchline:</label>
+      <input type="text" id="thePunchline" name="thePunchline" />
+
+    <button id='submit'>Submit</button>
+    <div class="jokesToDom"></div>
+    </form>
   </body>
 </html>

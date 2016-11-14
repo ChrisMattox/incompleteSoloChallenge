@@ -16,3 +16,31 @@ var jokes = [
     punchLine: "If you pee on them they disappear."
   }
 ];
+
+var express = require( 'express' );
+var app = express();
+var bodyParser = require( 'body-parser' );
+var urlEncodedParser = bodyParser.urlencoded( { extended: false } );
+var path = require( 'path' );
+
+var port = process.env.PORT || 5000;
+
+app.post( '/jokes', urlEncodedParser, function( req, res ){
+  res.send( jokes );
+}); // end calculate post
+
+app.post( '/newjokes', urlEncodedParser, function( req, res ){
+  res.send( objectToSend );
+}); // end calculate post
+
+app.listen( port, function(){
+  console.log( 'Server is running on:', port );
+});
+
+
+app.get( '/', function( req, res ){
+  res.sendFile( path.resolve( 'server/public/views/index.html' ) );
+});
+
+// set up static folder
+app.use( express.static( 'server/public' ) );
